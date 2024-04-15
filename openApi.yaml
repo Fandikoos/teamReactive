@@ -1,0 +1,95 @@
+openapi: 3.0.0
+info:
+  title: API de Equipos de Fútbol
+  description: API reactiva para gestionar equipos de fútbol
+  version: 1.0.0
+servers:
+  - url: https://api.example.com/v1
+    description: Servidor principal de la Api de Equipos de Fútbol
+paths:
+  /teams:
+    get:
+      summary: Obtener todos los equipos
+      responses:
+        '200':
+          description: Éxito al obtener los equipos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+    post:
+      summary: Crear un nuevo equipo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Team'
+      responses:
+        '201':
+          description: Éxito al crear un nuevo equipo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+  /team/{teamId}:
+    delete:
+      summary: Eliminar un equipo por ID
+      parameters:
+        - in: path
+          name: teamId
+          required: true
+          schema:
+            type: string
+          description: ID del equipo a eliminar
+      responses:
+        '204':
+          description: Equipo eliminado correctamente
+    put:
+      summary: Actualizar un equipo por ID
+      parameters:
+        - in: path
+          name: teamId
+          required: true
+          schema:
+            type: string
+          description: ID del equipo a actualizar
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Team'
+      responses:
+        '200':
+          description: Éxito al actualizar el equipo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+components:
+  schemas:
+    Team:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "123456"
+        name:
+          type: string
+          example: "Real Madrid"
+        city:
+          type: string
+          example: "Madrid"
+        stadium:
+          type: string
+          example: "Santiago Bernabéu"
+        coach:
+          type: string
+          example: "Carlo Ancelotti"
+        foundationYear:
+          type: string
+          format: date
+          example: "1902-03-06"
