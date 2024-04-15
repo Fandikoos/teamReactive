@@ -34,10 +34,12 @@ public class TeamController {
     }
 
     @DeleteMapping(value = "/team/{teamId}")
-    public Mono<ResponseEntity<String>> deleteTeam(@PathVariable String teamId){
-        return teamService.deleteTeam(teamId)
-                .then(Mono.just(ResponseEntity.status(HttpStatus.NO_CONTENT).body("Equipo eliminado correctamente")))
-                .switchIfEmpty(Mono.error(new TeamNotFoundException("Team not found")));
+    public Mono<ResponseEntity<Void>> deleteTeam(@PathVariable String teamId) {
+        return teamService.findById(teamId)
+                .flatMap(team -> teamService.deleteTeam(teamId)
+                        .then(Mono.just(ResponseEntity.noContent().<Void>build())))
+                .switchIfEmpty(Mono.error(new TeamNotFoundException("Team not found")))
+                .onErrorResume(ex -> Mono.just(ResponseEntity.notFound().build()));
     }
 
     @PutMapping(value = "/team/{teamId}")
