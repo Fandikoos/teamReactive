@@ -1,0 +1,8 @@
+com\svalero\teamreactive\domain\Team.class
+com\svalero\teamreactive\service\TeamService.class
+com\svalero\teamreactive\util\ErrorResponse.class
+com\svalero\teamreactive\validator\TeamValidator.class
+com\svalero\teamreactive\handler\TeamHandler.class
+com\svalero\teamreactive\TeamsReactiveApplication.class
+com\svalero\teamreactive\repository\TeamRepository.class
+com\svalero\teamreactive\router\TeamRouter.class
