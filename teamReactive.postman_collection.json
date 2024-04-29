@@ -12,12 +12,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8088/teams",
-					"protocol": "http",
+					"raw": "{{host}}{{port}}/teams",
 					"host": [
-						"localhost"
+						"{{host}}{{port}}"
 					],
-					"port": "8088",
 					"path": [
 						"teams"
 					]
@@ -32,7 +30,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Celta de Vigo\",\r\n    \"city\": \"Vigo\",\r\n    \"stadium\": \"Balaídos\",\r\n    \"coach\": \"Claudio Giraldez\",\r\n    \"foundationYear\": \"1923-05-21\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Granada CF\",\r\n    \"city\": \"Granada\",\r\n    \"stadium\": \"Los carmenes\",\r\n    \"coach\": \"Julina Perez\",\r\n    \"foundationYear\": \"1923-05-22\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,12 +38,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8088/teams",
-					"protocol": "http",
+					"raw": "{{host}}{{port}}/teams",
 					"host": [
-						"localhost"
+						"{{host}}{{port}}"
 					],
-					"port": "8088",
 					"path": [
 						"teams"
 					]
@@ -68,12 +64,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8088/team/:id",
-					"protocol": "http",
+					"raw": "{{host}}{{port}}/team/:id",
 					"host": [
-						"localhost"
+						"{{host}}{{port}}"
 					],
-					"port": "8088",
 					"path": [
 						"team",
 						":id"
@@ -81,7 +75,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": ""
+							"value": "662f68bf372d895036974a41"
 						}
 					]
 				}
@@ -94,12 +88,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8088/team/:id",
-					"protocol": "http",
+					"raw": "{{host}}{{port}}/team/:id",
 					"host": [
-						"localhost"
+						"{{host}}{{port}}"
 					],
-					"port": "8088",
 					"path": [
 						"team",
 						":id"
@@ -107,7 +99,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": ""
+							"value": "662f68bf372d895036974a41"
 						}
 					]
 				}
